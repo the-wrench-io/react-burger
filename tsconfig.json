@@ -22,7 +22,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "typeRoots": [
       "index.d.ts",
       "node_modules/@types"
