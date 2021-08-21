@@ -11,6 +11,9 @@ build/
 bin/
 /.pnp
 .pnp.js
+/src/index.tsx
+/src/react-app-env.d.ts
+
 
 # testing
 /coverage
@@ -33,3 +36,4 @@ yarn-error.log*
 .npmrc
 public/env-config.js
 env-config.js
+/public/
