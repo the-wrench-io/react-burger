@@ -1,20 +1,41 @@
+import { AppProviderProps, useApps as useAppsAlias, AppProvider } from './context/AppContext';
+import { useDrawer as useDrawerAlias } from './context/drawer/DrawerContext';
+import { useTabs as useTabsAlias } from './context/tabs/TabsContext';
+import { useSecondary as useSecondaryAlias } from './context/secondary/SecondaryContext';
 
-import { default as themeAs } from '../themes';
-import { default as intlAs } from '../intl';
-import { API as Context, Integration } from './context';
 
 
-declare namespace Layout {
-  export { Context };
+import {
+  AppContextType, AppSession, AppActions, 
+  App, AppId, AppState, AppStateCreate, AppStateRestore
+} from './context/AppAPI';
+import {
+  DrawerContextType, DrawerSession, DrawerActions
+} from './context/drawer/DrawerAPI';
+import {
+  TabsContextType, TabsSession, TabSession, TabsHistory, TabsActions
+} from './context/tabs/TabsAPI';
+import {
+  SecondaryContextType, SecondarySession, SecondaryActions 
+} from './context/secondary/SecondaryAPI';
+
+
+declare namespace Burger {
+  export { 
+    AppProviderProps, AppContextType, AppSession, AppActions,  App, AppId, AppState, AppStateCreate, AppStateRestore,
+    DrawerContextType, DrawerSession, DrawerActions,
+    TabsContextType, TabsSession, TabSession, TabsHistory, TabsActions,
+    SecondaryContextType, SecondarySession, SecondaryActions
+  };
 }
 
-namespace Layout {
-  export const themes = themeAs;
-  export const intl = intlAs;
-  export const Provider = Integration.Provider;
-  export const useContext = Integration.useContext;
-};
+namespace Burger {
+  export const Provider = AppProvider;
+  export const useApps = useAppsAlias; 
+  export const useDrawer = useDrawerAlias;
+  export const useTabs = useTabsAlias;
+  export const useSecondary = useSecondaryAlias;
 
+}
 
-
-export default Layout;
+export default Burger;
