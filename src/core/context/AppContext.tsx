@@ -41,7 +41,7 @@ const getAppId = (props: AppProviderProps): API.AppId => {
 const getApp = (children: API.App<any>[], session: API.AppSession) => {
   const appsToUse = children.filter(app => app.id === session.active);
   if (appsToUse.length !== 1) {
-    throw new Error(`No application with id: '${session.active}'!`);
+    throw new Error(`No application with id: '${session.active}', known apps: '${JSON.stringify(children.map(c => c.id), null, 2)}' !`);
   }
   return appsToUse[0];
 }
