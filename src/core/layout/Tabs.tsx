@@ -2,11 +2,13 @@ import React from 'react';
 
 import { Tabs as MuiTabs, Tab as MuiTab, useTheme, Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import {  } from '../tabs';
+
+import * as API from '../context/tabs/TabsAPI';
+import { useTabs } from '../context/tabs/TabsContext';
 
 
 const Tabs: React.FC<{}> = () => {
-  const { session, actions } = useLayout();
+  const { session, actions } = useTabs();
   const theme = useTheme();
   const active = session.history.open;
   const tabs = session.tabs;
@@ -18,7 +20,7 @@ const Tabs: React.FC<{}> = () => {
     const handleTabChange = (_event: React.ChangeEvent<{}>, newValue: number) => {
       actions.handleTabChange(newValue);
     };
-    const handleTabClose = (_event: React.ChangeEvent<{}>, newValue: Session.Tab<any>) => {
+    const handleTabClose = (_event: React.ChangeEvent<{}>, newValue: API.TabSession<any>) => {
       _event.stopPropagation();
       actions.handleTabClose(newValue);
     };
