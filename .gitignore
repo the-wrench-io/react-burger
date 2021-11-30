@@ -6,6 +6,7 @@ node_modules/
 .settings/
 .classpath
 .factorypath
+tsconfig.json
 target/
 build/
 bin/
