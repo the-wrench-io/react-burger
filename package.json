@@ -1,28 +1,14 @@
 {
-  "description": "",
   "homepage": "https://github.com/the-wrench-io/react-burger#readme",
   "name": "@the-wrench-io/react-burger",
-  "author": "Olev Mutso",
-  "license": "Apache-2.0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
+  "license": "Apache-2.0",
   "main": "build/core/index.js",
   "types": "build/core/index.d.ts",
   "files": [
     "build"
   ],
-  "scripts": {
-    "start": "./.build-scripts/start-dev.sh && react-scripts start",
-    "build": "rm -rf ./build && tsc",
-    "clean": "rm -rf ./build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/the-wrench-io/react-burger.git"
-  },
-  "bugs": {
-    "url": "https://github.com/the-wrench-io/react-burger/issues"
-  },
   "peerDependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
@@ -34,6 +20,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.1",
@@ -44,7 +31,6 @@
     "@types/node": "^12.20.15",
     "@types/react": "^17.0.10",
     "@types/react-dom": "^17.0.7",
-    "@babel/core": "^7.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intl": "^5.20.2",
@@ -52,8 +38,17 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.3.2"
   },
-  "engines": {
-    "node": ">=14.13.0"
+  "scripts": {
+    "start": "./.build-scripts/start-dev.sh && react-scripts start",
+    "build": "rm -rf ./build && tsc",
+    "clean": "rm -rf ./build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-wrench-io/react-burger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/the-wrench-io/react-burger/issues"
   },
   "eslintConfig": {
     "extends": [

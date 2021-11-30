@@ -3,7 +3,7 @@ on:
     branches:
       - main
 
-name: Create release from a commit
+name: react-burger-release
 jobs:
   build:
     name: Create Release
@@ -38,7 +38,7 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     - name: Run release script
-      run: ./.build-scripts/main-release.sh
+      run: ./.build-scripts/react-burger-main-branch-release.sh
       env:
         CI: false
         NODE_AUTH_TOKEN: ${{ secrets.BOT_TOKEN }}
