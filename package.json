@@ -1,6 +1,11 @@
 {
+  "description": "",
+  "homepage": "https://github.com/the-wrench-io/react-burger#readme",
   "name": "@the-wrench-io/react-burger",
+  "author": "Olev Mutso",
+  "license": "Apache-2.0",
   "version": "1.0.1",
+  "private": false,
   "main": "build/core/index.js",
   "types": "build/core/index.d.ts",
   "files": [
@@ -15,8 +20,6 @@
     "type": "git",
     "url": "git+https://github.com/the-wrench-io/react-burger.git"
   },
-  "author": "Olev Mutso",
-  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/the-wrench-io/react-burger/issues"
   },
@@ -70,6 +73,4 @@
       "last 1 safari version"
     ]
   },
-  "description": "",
-  "homepage": "https://github.com/the-wrench-io/react-burger#readme"
 }
