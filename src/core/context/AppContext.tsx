@@ -51,7 +51,7 @@ const CreateContainer: React.FC<{ app: API.App<any> }> = ({ app }) => {
   const Secondary = React.useMemo(() => app.components.secondary, [app]);
   const Toolbar = React.useMemo(() => app.components.toolbar, [app]);
 
-  console.log(`App Container/Layout Init: '${app.id}'`);
+  console.log(`burger: app container/layout Init: '${app.id}'`);
   return (
     <Container main={<Main />} secondary={<Secondary />} toolbar={<Toolbar />} />
   );
@@ -66,7 +66,7 @@ const AppInit: React.FC<{ children: API.App<any>[] }> = ({ children }) => {
   const { restorePoint } = getContext();
   const container = React.useMemo(() => createContext((<CreateContainer app={app} />), restorePoint), [createContext, app, restorePoint]);
 
-  console.log(`App Context Init: '${app.id}'`);
+  console.log(`burger: app context init: '${app.id}'`);
   return (<>{container}</>);
 }
 
@@ -76,7 +76,7 @@ const AppProvider: React.FC<AppProviderProps> = (props: AppProviderProps) => {
   const [session, dispatch] = React.useReducer(AppReducer, sessionData.withActive(getAppId(props)));
   const actions = React.useMemo(() => new AppReducerDispatch(dispatch, apps), [dispatch, apps]);
 
-  console.log("App Provider Init");
+  console.log("burger: App Provider Init");
   return (<AppContext.Provider value={{ session, actions }}>
     <DrawerProvider drawerOpen={props.drawerOpen}>
       <TabsProvider appId={session.active}>

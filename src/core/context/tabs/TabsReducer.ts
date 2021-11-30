@@ -21,7 +21,7 @@ class TabsReducerDispatch implements API.TabsActions {
 
   private _sessionDispatch: React.Dispatch<ReducerAction>;
   constructor(session: React.Dispatch<ReducerAction>) {
-    console.log("init burger dispatch");
+    console.log("burger: init tabs dispatch");
     this._sessionDispatch = session;
   }
   handleTabAdd(newItem: API.TabSession<any>) {

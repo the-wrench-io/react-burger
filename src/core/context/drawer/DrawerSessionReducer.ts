@@ -13,7 +13,7 @@ class DrawerReducerDispatch implements API.DrawerActions {
 
   private _sessionDispatch: React.Dispatch<ReducerAction>;
   constructor(session: React.Dispatch<ReducerAction>) {
-    console.log("init drawer dispatch");
+    console.log("burger: init drawer dispatch");
     this._sessionDispatch = session;
   }
   handleDrawerOpen(drawerOpen: boolean) {

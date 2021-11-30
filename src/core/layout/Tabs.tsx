@@ -13,10 +13,8 @@ const Tabs: React.FC<{}> = () => {
   const active = session.history.open;
   const tabs = session.tabs;
 
-
   return React.useMemo(() => {
-    console.log("RENDERING TABS", tabs);
-
+    console.log("burger: render tabs", tabs);
     const handleTabChange = (_event: React.ChangeEvent<{}>, newValue: number) => {
       actions.handleTabChange(newValue);
     };
@@ -24,8 +22,6 @@ const Tabs: React.FC<{}> = () => {
       _event.stopPropagation();
       actions.handleTabClose(newValue);
     };
-
-    console.log("init tabs");
     return (<MuiTabs value={active} onChange={handleTabChange} variant="scrollable" scrollButtons="auto"
       sx={{
         "& .MuiTabs-indicator": {

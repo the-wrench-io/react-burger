@@ -13,7 +13,7 @@ class SecondaryReducerDispatch implements API.SecondaryActions {
 
   private _sessionDispatch: React.Dispatch<ReducerAction>;
   constructor(session: React.Dispatch<ReducerAction>) {
-    console.log("init burger dispatch");
+    console.log("burger: init secondary dispatch");
     this._sessionDispatch = session;
   }
   handleSecondary(newItemId?: string) {

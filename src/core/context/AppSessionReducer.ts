@@ -15,7 +15,7 @@ class AppReducerDispatch implements API.AppActions {
   private _children: API.App<any>[];
   
   constructor(session: React.Dispatch<ReducerAction>, children: API.App<any>[]) {
-    console.log("init drawer dispatch");
+    console.log("burger: init app dispatch");
     this._sessionDispatch = session;
     this._children = children;
   }
