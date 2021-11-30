@@ -69,5 +69,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "",
+  "homepage": "https://github.com/the-wrench-io/react-burger#readme"
 }
