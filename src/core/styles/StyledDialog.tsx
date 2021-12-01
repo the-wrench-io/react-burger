@@ -1,16 +1,18 @@
 import React from 'react';
 import { styled } from "@mui/material/styles";
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, Box, alpha, useTheme } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Box, alpha, useTheme } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import StencilStyles from '../styles';
 
-
+/*
 const StyledDialogButton = styled(Button)(() => ({
   fontWeight: 'bold',
   "&:hover, &.Mui-focusVisible": {
     fontWeight: 'bold',
   },
 }));
+
+*/
 
 const StyledDialogTitle = styled(DialogTitle)(({ theme }) => ({
   color: theme.palette.secondary.contrastText,

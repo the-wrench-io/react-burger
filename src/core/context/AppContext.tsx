@@ -20,6 +20,7 @@ const sessionData = new AppSessionData({ active: "" });
 
 interface AppProviderProps {
   drawerOpen?: boolean;
+  secondary?: string;
   appId?: API.AppId;
   children: API.App<any>[];
 }
@@ -80,7 +81,7 @@ const AppProvider: React.FC<AppProviderProps> = (props: AppProviderProps) => {
   return (<AppContext.Provider value={{ session, actions }}>
     <DrawerProvider drawerOpen={props.drawerOpen}>
       <TabsProvider appId={session.active}>
-        <SecondaryProvider appId={session.active}>
+        <SecondaryProvider appId={session.active} secondary={props.secondary}>
           <AppInit children={props.children} />
         </SecondaryProvider>
       </TabsProvider>

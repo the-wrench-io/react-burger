@@ -42,7 +42,7 @@ type StyledTreeItemProps = TreeItemProps & {
   labelcolor?: string;
   hovercolor?: string;
   textcolor?: string;
-  labelIcon: React.ElementType<SvgIconProps>;
+  labelIcon?: React.ElementType<SvgIconProps>;
   labelButton?: React.ReactChild;
   labelInfo?: string | React.ReactChild;
   labelText: string | React.ReactChild;
@@ -63,6 +63,15 @@ const StyledTreeItem: React.FC<StyledTreeItemProps> = (props) => {
     ...other
   } = props;
 
+  let resolvedLabelcolor = "inherit";
+  if(labelcolor) {
+    resolvedLabelcolor = theme.palette[labelcolor]?.main;
+    if(!resolvedLabelcolor && labelcolor.indexOf(".") > -1) {
+      const coolors = labelcolor.split(".");
+      resolvedLabelcolor = theme.palette[coolors[0]][coolors[1]];
+    }
+  }
+
   return (
     <StyledTreeItemRoot
       sx={{ backgroundColor: "explorer.main" }}
@@ -71,7 +80,7 @@ const StyledTreeItem: React.FC<StyledTreeItemProps> = (props) => {
           {labelButton ? labelButton : <Box component={LabelIcon}
             sx={{
               mr: 1,
-              color: labelcolor ? theme.palette[labelcolor].main : "inherit",
+              color: resolvedLabelcolor,
             }} />}
           <Typography noWrap={true} maxWidth="300px"
             variant="body2"

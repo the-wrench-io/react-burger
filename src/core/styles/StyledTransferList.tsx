@@ -61,7 +61,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
     }
     setSearchResult(rows.filter(row => filterRow(row, search.toLowerCase())));
 
-  }, [search, rows, setSearch, setSearchResult]);
+  }, [search, rows, setSearch, setSearchResult, filterRow]);
 
   return (
     <>

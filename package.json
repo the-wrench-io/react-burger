@@ -39,7 +39,8 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "start": "./.build-scripts/start-dev.sh && react-scripts start",
+    "start": "(yalc remove --all) && ./.build-scripts/start-dev.sh && react-scripts start",
+    "yalc": "rm -rf ./build && tsc && (yalc publish)",
     "build": "rm -rf ./build && tsc",
     "clean": "rm -rf ./build"
   },

@@ -15,6 +15,7 @@ const Tabs: React.FC<{}> = () => {
 
   return React.useMemo(() => {
     console.log("burger: render tabs", tabs);
+
     const handleTabChange = (_event: React.ChangeEvent<{}>, newValue: number) => {
       actions.handleTabChange(newValue);
     };
