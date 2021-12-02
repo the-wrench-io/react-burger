@@ -2,6 +2,7 @@ import React from 'react';
 
 import { CssBaseline, Toolbar, Typography, Box } from '@mui/material';
 import { SxProps } from '@mui/system';
+import { styled } from "@mui/material/styles";
 
 import StyledAppBar from './Appbar';
 import StyledDrawer from './Drawer';
@@ -28,10 +29,16 @@ const secondaryStyle: SxProps = {
   height: "100%" 
 };
 const mainStyle: (drawerOpen: boolean) => SxProps = (drawerOpen) => (drawerOpen ? 
-  { flexGrow: 1, overflow: "auto" } : 
-  { flexGrow: 1, overflow: "auto", marginLeft: '60px' });
+  { flexGrow: 1, overflow: "auto", height: "calc(100vh - 64px)" } : 
+  { flexGrow: 1, overflow: "auto", marginLeft: '60px', height: "calc(100vh - 64px)" });
 
 const drawerStyle: SxProps = { display: 'flex', overflowY: "scroll", height: "100vh" };
+
+
+const StyledMain = styled("main")(() => ({
+  width: "100%",
+  height: "100%"
+}));
 
 
 const Container: React.FC<ContainerProps> = (components) => {
@@ -60,10 +67,10 @@ const Container: React.FC<ContainerProps> = (components) => {
       </Box>
     </StyledDrawer>
 
-    <main style={{ width: "100%" }}>
+    <StyledMain>
       <Toolbar />
       <Box sx={mainStyle(drawerOpen)}>{mainWindow}</Box>
-    </main>
+    </StyledMain>
   </Box>);
 }
 
