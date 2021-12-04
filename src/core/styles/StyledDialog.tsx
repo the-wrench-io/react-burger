@@ -25,7 +25,7 @@ interface StyledDialogProps {
   title: string;
   titleArgs?: {};
   onClose: () => void;
-  submit: {
+  submit?: {
     title: string;
     disabled: boolean;
     onClick: () => void;
@@ -49,7 +49,7 @@ const StyledDialog: React.FC<StyledDialogProps> = (props) => {
       <DialogActions>
         <Box display="inline-flex">
           <StencilStyles.SecondaryButton sx={{ mr: 1 }} onClick={props.onClose} label="button.cancel" />
-          <StencilStyles.PrimaryButton onClick={props.submit.onClick} disabled={props.submit.disabled} label={props.submit.title} />
+          {props.submit ? <StencilStyles.PrimaryButton onClick={props.submit.onClick} disabled={props.submit.disabled} label={props.submit.title} /> : undefined }
         </Box>
       </DialogActions>
     </Dialog>
