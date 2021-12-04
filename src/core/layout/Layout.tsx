@@ -29,7 +29,7 @@ const secondaryStyle: SxProps = {
   height: "100%" 
 };
 const mainStyle: (drawerOpen: boolean) => SxProps = (drawerOpen) => (drawerOpen ? 
-  { flexGrow: 1, overflow: "auto", height: "calc(100vh - 64px)" } : 
+  { flexGrow: 1, overflow: "auto", height: "calc(100vh - 64px)", width: "calc(100vw - 500px)"} : 
   { flexGrow: 1, overflow: "auto", marginLeft: '60px', height: "calc(100vh - 64px)" });
 
 const drawerStyle: SxProps = { display: 'flex', overflowY: "scroll", height: "100vh" };
