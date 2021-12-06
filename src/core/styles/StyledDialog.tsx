@@ -30,6 +30,7 @@ interface StyledDialogProps {
     disabled: boolean;
     onClick: () => void;
   };
+  actions?: React.ReactElement;
   open: boolean;
   backgroundColor: string;
   children: React.ReactElement;
@@ -48,6 +49,7 @@ const StyledDialog: React.FC<StyledDialogProps> = (props) => {
       <DialogContent sx={{ color: "mainContent.dark", fontWeight: '400' }}>{props.children}</DialogContent>
       <DialogActions>
         <Box display="inline-flex">
+          {props.actions}
           <StencilStyles.SecondaryButton sx={{ mr: 1 }} onClick={props.onClose} label="button.cancel" />
           {props.submit ? <StencilStyles.PrimaryButton onClick={props.submit.onClick} disabled={props.submit.disabled} label={props.submit.title} /> : undefined }
         </Box>

@@ -21,7 +21,7 @@ import {
 import { StyledDialog, StyledDialogProps } from './styles/StyledDialog';
 import { StyledTreeItem, StyledTreeItemRoot, StyledTreeItemOption, StyledTreeItemProps } from './styles/StyledTreeItem';
 import { StyledSelect, StyledSelectMultiple, StyledSelectProps } from './styles/StyledSelect';
-import { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField, StyledTextFieldProps } from './styles/StyledTextField';
+import { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField, StyledTextFieldProps, StyledDateField, StyledDateTimeField } from './styles/StyledTextField';
 import { StyledTransferList, StyledTransferListProps } from './styles/StyledTransferList';
 import { StyledPrimaryButton, StyledSecondaryButton} from './styles/StyledButton';
 import { StyledCheckbox } from './styles/StyledCheckbox';
@@ -53,6 +53,8 @@ namespace Burger {
   export const TextField = StyledTextField;
   export const NumberField = StyledNumberField;
   export const FileField = StyledFileField;
+  export const DateField = StyledDateField;
+  export const DateTimeField = StyledDateTimeField;
   
   export const TreeItem = StyledTreeItem;
   export const TreeItemRoot = StyledTreeItemRoot;

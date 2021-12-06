@@ -49,6 +49,7 @@ interface StyledTextFieldProps<T> {
   placeholder?: T;
   required?: boolean;
   onChange: (newValue: T) => void;
+  onEnter?: () => void;
 }
 
 const StyledFileField: React.FC<StyledTextFieldProps<string>> = ({ onChange, label, value, required, placeholder, helperText, disabled }) => {
@@ -74,7 +75,7 @@ const StyledFileField: React.FC<StyledTextFieldProps<string>> = ({ onChange, lab
   );
 }
 
-const StyledTextField: React.FC<StyledTextFieldProps<string>> = ({ onChange, label, value, required, placeholder, helperText, disabled }) => {
+const StyledTextField: React.FC<StyledTextFieldProps<string>> = ({ onChange, onEnter, label, value, required, placeholder, helperText, disabled }) => {
   const helperTextLocalized = helperText ? <FormattedMessage id={helperText} /> : helperText;
   return (
     <TextFieldRoot fullWidth
@@ -85,11 +86,17 @@ const StyledTextField: React.FC<StyledTextFieldProps<string>> = ({ onChange, lab
       helperText={helperTextLocalized}
       placeholder={placeholder !== null && placeholder !== undefined ? placeholder : ''}
       value={value}
-      onChange={({ target }) => onChange(target.value)} />
+      onChange={({ target }) => onChange(target.value)}
+      onKeyPress={onEnter ? (event) => {
+        const key = event.key;
+        if (key === 'Enter') {
+          onEnter();
+        }
+      } : undefined} />
   );
 }
 
-const StyledNumberField: React.FC<StyledTextFieldProps<number>> = ({ onChange, label, value, required, placeholder, helperText, disabled }) => {
+const StyledNumberField: React.FC<StyledTextFieldProps<number>> = ({ onChange, onEnter, label, value, required, placeholder, helperText, disabled }) => {
   const helperTextLocalized = helperText ? <FormattedMessage id={helperText} /> : helperText;
   return (
     <TextFieldRoot fullWidth
@@ -101,11 +108,61 @@ const StyledNumberField: React.FC<StyledTextFieldProps<number>> = ({ onChange, l
       helperText={helperTextLocalized}
       placeholder={placeholder + ""}
       value={value}
-      onChange={({ target }) => onChange(target.value as any)} />
+      onChange={({ target }) => onChange(target.value as any)}
+      onKeyPress={onEnter ? (event) => {
+        const key = event.key;
+        if (key === 'Enter') {
+          onEnter();
+        }
+      } : undefined} />
   );
 }
 
-const StyledSearchField: React.FC<StyledTextFieldProps<string>> = ({ onChange, label, value, required, placeholder, helperText, disabled }) => {
+const StyledDateField: React.FC<StyledTextFieldProps<string>> = ({ onChange, onEnter, label, value, required, placeholder, helperText, disabled }) => {
+  const helperTextLocalized = helperText ? <FormattedMessage id={helperText} /> : helperText;
+  return (
+    <TextFieldRoot fullWidth
+      disabled={disabled}
+      variant="outlined"
+      label={<FormattedMessage id={label} />}
+      required={required}
+      type={"date"}
+      helperText={helperTextLocalized}
+      placeholder={placeholder + ""}
+      value={value}
+      onChange={({ target }) => onChange(target.value as any)}
+      onKeyPress={onEnter ? (event) => {
+        const key = event.key;
+        if (key === 'Enter') {
+          onEnter();
+        }
+      } : undefined} />
+  );
+}
+
+const StyledDateTimeField: React.FC<StyledTextFieldProps<string>> = ({ onChange, onEnter, label, value, required, placeholder, helperText, disabled }) => {
+  const helperTextLocalized = helperText ? <FormattedMessage id={helperText} /> : helperText;
+  return (
+    <TextFieldRoot fullWidth
+      disabled={disabled}
+      variant="outlined"
+      label={<FormattedMessage id={label} />}
+      required={required}
+      type={"datetime-local"}
+      helperText={helperTextLocalized}
+      placeholder={placeholder + ""}
+      value={value}
+      onChange={({ target }) => onChange(target.value as any)}
+      onKeyPress={onEnter ? (event) => {
+        const key = event.key;
+        if (key === 'Enter') {
+          onEnter();
+        }
+      } : undefined} />
+  );
+}
+
+const StyledSearchField: React.FC<StyledTextFieldProps<string>> = ({ onChange, onEnter, label, value, required, placeholder, helperText, disabled }) => {
   const helperTextLocalized = helperText ? <FormattedMessage id={helperText} /> : '';
 
   return (
@@ -119,6 +176,12 @@ const StyledSearchField: React.FC<StyledTextFieldProps<string>> = ({ onChange, l
       placeholder={placeholder !== undefined && placeholder !== null ? placeholder + '' : ''}
       value={value}
       onChange={({ target }) => onChange(target.value as any)}
+      onKeyPress={onEnter ? (event) => {
+        const key = event.key;
+        if (key === 'Enter') {
+          onEnter();
+        }
+      } : undefined}
       sx={{ maxWidth: "400px" }}
       InputProps={{
         startAdornment: (
@@ -131,4 +194,5 @@ const StyledSearchField: React.FC<StyledTextFieldProps<string>> = ({ onChange, l
 }
 
 export type { StyledTextFieldProps }
-export { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField }
+export { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField, StyledDateField, StyledDateTimeField }
+

@@ -13,10 +13,12 @@ const StyledCheckboxRoot = styled(Checkbox)<CheckboxProps>(({ theme }) => ({
 }))
 
 
-const StyledCheckbox: React.FC<{ checked: boolean, sx?: SxProps<Theme> }> = (props) => {
-  return (
-    <StyledCheckboxRoot />
-  )
+const StyledCheckbox: React.FC<{
+  checked: boolean;
+  onChange: (newValue: boolean) => void;
+  sx?: SxProps<Theme>;
+}> = (props) => {
+  return (<StyledCheckboxRoot value={props.checked} sx={props.sx} onChange={({target}) => props.onChange(target.checked)} />)
 }
 
 export { StyledCheckbox }
