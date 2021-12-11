@@ -29,18 +29,29 @@ const StyledButtonPrimaryRoot = styled(Button)<ButtonProps>(({ theme }) => ({
 
 
 
-const StyledPrimaryButton: React.FC<{ label: string, onClick: () => void, sx?: SxProps<Theme>, disabled?: boolean }> = (props) => {
+const StyledPrimaryButton: React.FC<{
+  label: string,
+  onClick: (event: React.MouseEvent<HTMLElement>) => void,
+  sx?: SxProps<Theme>,
+  disabled?: boolean
+}> = (props) => {
   const title = <FormattedMessage id={props.label} />;
   return (
     <StyledButtonPrimaryRoot
       variant='contained'
       onClick={props.onClick}
       disabled={props.disabled}
-      sx={props.sx}>{title}</StyledButtonPrimaryRoot>
+      sx={props.sx}>
+      {title}
+    </StyledButtonPrimaryRoot>
   );
 }
 
-const StyledSecondaryButton: React.FC<{ label?: string, onClick: () => void, sx?: SxProps<Theme> }> = (props) => {
+const StyledSecondaryButton: React.FC<{
+  label?: string,
+  onClick: (event: React.MouseEvent<HTMLElement>) => void,
+  sx?: SxProps<Theme>
+}> = (props) => {
   const title = <FormattedMessage id={props.label} />;
   return (
     <StyledButtonRoot
