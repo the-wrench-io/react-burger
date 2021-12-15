@@ -50,13 +50,16 @@ const StyledPrimaryButton: React.FC<{
 const StyledSecondaryButton: React.FC<{
   label?: string,
   onClick: (event: React.MouseEvent<HTMLElement>) => void,
-  sx?: SxProps<Theme>
+  sx?: SxProps<Theme>,
+  disabled?: boolean
 }> = (props) => {
   const title = <FormattedMessage id={props.label} />;
   return (
     <StyledButtonRoot
       onClick={props.onClick}
-      sx={props.sx}>{title}</StyledButtonRoot>
+      disabled={props.disabled}
+      sx={props.sx}>{title}
+    </StyledButtonRoot>
   );
 }
 
