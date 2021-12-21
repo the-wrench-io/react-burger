@@ -41,7 +41,7 @@
   "scripts": {
     "start": "(yalc remove --all) && ./.build-scripts/start-dev.sh && react-scripts start",
     "yalc": "rm -rf ./build && tsc && (yalc publish)",
-    "build": "rm -rf ./build && tsc",
+    "build": "rm -rf ./build  && tsc && (cp -R ./src ./build/src)",
     "clean": "rm -rf ./build"
   },
   "repository": {
