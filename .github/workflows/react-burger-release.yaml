@@ -33,7 +33,7 @@ jobs:
     - name: Setup node and yarn
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'
         cache: 'yarn'
         registry-url: 'https://registry.npmjs.org'
 
