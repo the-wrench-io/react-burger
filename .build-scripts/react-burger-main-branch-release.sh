@@ -41,11 +41,11 @@ echo "Git checkout refname: '${refname}' branch: '${branch}' commit: '${GITHUB_S
 echo "Project version: '${PROJECT_VERSION}'"
 git commit -am "Release: '${PROJECT_VERSION}'"
 git tag -a ${PROJECT_VERSION} -m "Release: '${PROJECT_VERSION}'"
+git push origin ${branch}
 git push origin --tags
 
 yarn build
 yarn npm publish --access public
-git push origin ${branch}
 
 # Next
 yarn version patch
