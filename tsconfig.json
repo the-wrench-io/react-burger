@@ -20,7 +20,7 @@
     "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
-    "mapRoot": "build",
+    "mapRoot": "./build",
     "resolveJsonModule": true,
     "declaration": true,
     "jsx": "react",
