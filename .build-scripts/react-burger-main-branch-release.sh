@@ -43,7 +43,7 @@ echo "Git checkout refname: '${refname}' branch: '${branch}' commit: '${GITHUB_S
 echo "Project version: '${PROJECT_VERSION}' next: '${PROJECT_VERSION_NEXT}'"
 
 yarn build
-yarn publish --new-version ${PROJECT_VERSION_NEXT}  --access public
+yarn npm publish --new-version ${PROJECT_VERSION_NEXT}  --access public
 
 git push origin ${branch}
 git push origin --tags
