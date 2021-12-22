@@ -10,6 +10,9 @@ if [[ "${last_release_commit_hash}" = "${GITHUB_SHA}" ]]; then
      #exit 0
 fi
 
+# yarn
+corepack enable
+yarn set version stable
 
 # Config GIT
 echo "Setup git user name to '$GIT_USER' and email to '$GIT_EMAIL'"
