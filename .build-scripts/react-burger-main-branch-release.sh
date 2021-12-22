@@ -35,7 +35,7 @@ yarn install
 
 # resolve versions
 readonly local PROJECT_VERSION=$(node -e "console.log(require('./package.json').version);")
-yarn version --patch
+yarn version patch
 readonly local PROJECT_VERSION_NEXT=$(node -e "console.log(require('./package.json').version);")
 
 # Log

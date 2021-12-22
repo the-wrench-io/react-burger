@@ -40,3 +40,4 @@ env-config.js
 /.yarn/
 /.pnp.cjs
 /.pnp.loader.mjs
+/.yarnrc.yml
