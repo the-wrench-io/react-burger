@@ -39,9 +39,7 @@ readonly local PROJECT_VERSION=$(node -e "console.log(require('./package.json').
 # Publish and Tag
 echo "Git checkout refname: '${refname}' branch: '${branch}' commit: '${GITHUB_SHA}'"
 echo "Project version: '${PROJECT_VERSION}'"
-git commit -am "Release: '${PROJECT_VERSION}'"
 git tag -a ${PROJECT_VERSION} -m "Release: '${PROJECT_VERSION}'"
-git push origin ${branch}
 git push origin --tags
 
 yarn build
