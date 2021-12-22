@@ -38,3 +38,5 @@ public/env-config.js
 env-config.js
 /public/
 /.yarn/
+/.pnp.cjs
+/.pnp.loader.mjs
