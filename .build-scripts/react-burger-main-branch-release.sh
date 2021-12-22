@@ -32,18 +32,15 @@ yarn set version 3.1.1
 echo "Current yarn version: $(yarn -v)"
 yarn plugin import version
 yarn install
-
-# resolve versions
-readonly local PROJECT_VERSION=$(node -e "console.log(require('./package.json').version);")
+yarn build
 
 # Publish and Tag
+readonly local PROJECT_VERSION=$(node -e "console.log(require('./package.json').version);")
 echo "Git checkout refname: '${refname}' branch: '${branch}' commit: '${GITHUB_SHA}'"
 echo "Project version: '${PROJECT_VERSION}'"
 git tag -a ${PROJECT_VERSION} -m "Release: '${PROJECT_VERSION}'"
-git push origin --tags
-
-yarn build
 yarn npm publish --access public
+git push origin --tags
 
 # Next
 yarn version patch
