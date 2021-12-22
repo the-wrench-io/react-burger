@@ -1,7 +1,7 @@
 {
   "homepage": "https://github.com/the-wrench-io/react-burger#readme",
   "name": "@the-wrench-io/react-burger",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "license": "Apache-2.0",
   "main": "build/core/index.js",
   "types": "build/core/index.d.ts",
