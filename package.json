@@ -26,6 +26,7 @@
     "@mui/lab": "^5.0.0-alpha.53",
     "@mui/material": "^5.0.1",
     "@mui/styles": "^5.0.1",
+    "@mui/system": "^5.0.1",
     "@types/jest": "^26.0.23",
     "@types/node": "^12.20.15",
     "@types/react": "^17.0.10",
