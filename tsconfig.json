@@ -18,7 +18,7 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "removeComments": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "mapRoot": "../../build/",
     "resolveJsonModule": true,
     "declaration": true,
