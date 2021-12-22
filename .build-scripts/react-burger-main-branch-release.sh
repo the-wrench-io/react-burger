@@ -35,18 +35,21 @@ yarn install
 
 # resolve versions
 readonly local PROJECT_VERSION=$(node -e "console.log(require('./package.json').version);")
-yarn version patch
-readonly local PROJECT_VERSION_NEXT=$(node -e "console.log(require('./package.json').version);")
 
-# Log
+# Publish and Tag
 echo "Git checkout refname: '${refname}' branch: '${branch}' commit: '${GITHUB_SHA}'"
-echo "Project version: '${PROJECT_VERSION}' next: '${PROJECT_VERSION_NEXT}'"
+echo "Project version: '${PROJECT_VERSION}'"
+git commit -am "Release: '${PROJECT_VERSION}'"
+git tag -a ${PROJECT_VERSION} -m "Release: '${PROJECT_VERSION}'"
+git push origin --tags
 
 yarn build
 yarn npm publish --access public
 git push origin ${branch}
 
-# Taggging
-git tag -a ${PROJECT_VERSION_NEXT} -m "release ${PROJECT_VERSION_NEXT}"
-git push origin ${PROJECT_VERSION_NEXT}
-git push origin --tags
+# Next
+yarn version patch
+readonly local PROJECT_VERSION_NEXT=$(node -e "console.log(require('./package.json').version);")
+git commit -am "After release: '${PROJECT_VERSION_NEXT}'"
+git push origin ${branch}
+echo "Released: '${PROJECT_VERSION}', now: '${PROJECT_VERSION_NEXT}'"
