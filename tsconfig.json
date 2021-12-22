@@ -7,8 +7,7 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "rootDirs": [
-      "src",
-      "stories"
+      "src"
     ],
     "noImplicitAny": false,
     "allowJs": false,
@@ -20,6 +19,7 @@
     "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
+    "sourceRoot": "./build",
     "mapRoot": "./build",
     "resolveJsonModule": true,
     "declaration": true,
@@ -30,8 +30,7 @@
     ]
   },
   "include": [
-    "src",
-    "**/*.tsx"
+     "src/**/*"
   ],
   "exclude": [
     "node_modules",
