@@ -44,6 +44,9 @@ echo "Project version: '${PROJECT_VERSION}' next: '${PROJECT_VERSION_NEXT}'"
 
 yarn build
 yarn npm publish --access public
-
 git push origin ${branch}
+
+# Taggging
+git tag -a ${PROJECT_VERSION_NEXT} -m "release ${PROJECT_VERSION_NEXT}"
+git push origin ${PROJECT_VERSION_NEXT}
 git push origin --tags
