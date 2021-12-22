@@ -12,7 +12,7 @@ fi
 
 # yarn
 corepack enable
-yarn set version stable
+yarn set version 3.1.1
 yarn -v
 
 # Config GIT
