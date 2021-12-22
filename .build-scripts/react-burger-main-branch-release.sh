@@ -13,6 +13,7 @@ fi
 # yarn
 corepack enable
 yarn set version stable
+yarn -v
 
 # Config GIT
 echo "Setup git user name to '$GIT_USER' and email to '$GIT_EMAIL'"
