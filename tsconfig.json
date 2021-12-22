@@ -20,6 +20,7 @@
     "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
+    "mapRoot": "build",
     "resolveJsonModule": true,
     "declaration": true,
     "jsx": "react",
@@ -34,6 +35,9 @@
   ],
   "exclude": [
     "node_modules",
+    ".yarn",
+    ".build-scripts",
+    ".github",
     "build",
     "src/setupTests.ts",
     "**/*.test.tsx",
