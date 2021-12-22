@@ -19,7 +19,6 @@
     "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": false,
-    "mapRoot": "../../build/",
     "resolveJsonModule": true,
     "declaration": true,
     "jsx": "react",
