@@ -19,7 +19,7 @@
     "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
-    "mapRoot": "../../",
+    "mapRoot": "../../build/",
     "sourceRoot": "../../",
     "resolveJsonModule": true,
     "declaration": true,
