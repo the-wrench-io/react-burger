@@ -10,21 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Setup variables from commit
-      id: commit_variables
-      run: |
-        echo ::set-output name=SOURCE_COMMIT::${GITHUB_SHA}
-        echo ::set-output name=SOURCE_REF::${GITHUB_REF}
-
-
-    - name: Setup ENV variables
-      run: |
-        echo $GITHUB_REF
-        echo $SOURCE_COMMIT
-      env:
-        GITHUB_REF: ${{ steps.commit_variables.outputs.GITHUB_REF }}
-        SOURCE_COMMIT: ${{ steps.commit_variables.outputs.SOURCE_COMMIT }}
-
     - name: Checkout code
       uses: actions/checkout@main
       with:
