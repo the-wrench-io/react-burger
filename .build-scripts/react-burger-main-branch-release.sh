@@ -45,6 +45,6 @@ git push origin --tags
 # Next
 yarn version patch
 readonly local PROJECT_VERSION_NEXT=$(node -e "console.log(require('./package.json').version);")
-git commit -am "After release: '${PROJECT_VERSION_NEXT}'"
+git commit -am "release: '${PROJECT_VERSION_NEXT}'"
 git push origin ${branch}
 echo "Released: '${PROJECT_VERSION}', now: '${PROJECT_VERSION_NEXT}'"
