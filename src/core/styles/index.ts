@@ -6,7 +6,7 @@ import { StyledTransferList, StyledTransferListProps } from './StyledTransferLis
 import { StyledPrimaryButton, StyledSecondaryButton} from './StyledButton';
 import { StyledCheckbox } from './StyledCheckbox';
 import { StyledSwitch, StyledSwitchProps } from './StyledSwitch';
-
+import { StyledRadioButton } from './StyledRadioButton';
 
 
 declare namespace BurgerStyles {
@@ -31,6 +31,7 @@ namespace BurgerStyles {
   export const SecondaryButton = StyledSecondaryButton;
   export const Checkbox = StyledCheckbox;
   export const Switch = StyledSwitch;
+  export const RadioButton = StyledRadioButton;
 }
 
 export default BurgerStyles;
