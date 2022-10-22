@@ -14,6 +14,7 @@ fi
 echo "Setup git user name to '$GIT_USER' and email to '$GIT_EMAIL'"
 git config --global user.name "$GIT_USER";
 git config --global user.email "$GIT_EMAIL";
+git update-index --assume-unchanged ".yarnrc.yml"
 
 # Checkout
 git branch -a --contains ${GITHUB_SHA} --format="%(refname)"
