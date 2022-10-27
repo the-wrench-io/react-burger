@@ -1,5 +1,4 @@
 {
-  "homepage": "https://github.com/the-wrench-io/react-burger#readme",
   "name": "@the-wrench-io/react-burger",
   "version": "1.0.39",
   "license": "Apache-2.0",
@@ -39,7 +38,7 @@
     "typescript": "^4.3.2"
   },
   "scripts": {
-    "start": "(yalc remove --all) && ./.build-scripts/start-dev.sh && react-scripts start",
+    "start": "./.build-scripts/start-dev.sh && react-scripts start",
     "yalc": "rm -rf ./build && tsc && (yalc publish)",
     "build": "rm -rf ./build  && tsc",
     "clean": "rm -rf ./build"

@@ -48,13 +48,19 @@ const getApp = (children: API.App<any>[], session: API.AppSession) => {
 }
 
 const CreateContainer: React.FC<{ app: API.App<any> }> = ({ app }) => {
-  const Main = React.useMemo(() => app.components.primary, [app]);
-  const Secondary = React.useMemo(() => app.components.secondary, [app]);
-  const Toolbar = React.useMemo(() => app.components.toolbar, [app]);
+  const Main: React.ElementType = React.useMemo(() => app.components.primary, [app]);
+  const Secondary: React.ElementType = React.useMemo(() => app.components.secondary, [app]);
+  const Toolbar: React.ElementType = React.useMemo(() => app.components.toolbar, [app]);
 
   console.log(`burger: app container/layout Init: '${app.id}'`);
+  // @ts-ignore
+  const main = <Main />;
+  // @ts-ignore
+  const secondary = <Secondary />;
+  // @ts-ignore
+  const toobar = <Toolbar />;
   return (
-    <Container main={<Main />} secondary={<Secondary />} toolbar={<Toolbar />} />
+    <Container main={main} secondary={secondary} toolbar={toobar} />
   );
 }
 
