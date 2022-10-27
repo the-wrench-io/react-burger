@@ -2,8 +2,7 @@ import React from 'react';
 import { styled } from "@mui/material/styles";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Box, alpha, useTheme } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
-import StencilStyles from '../styles';
-
+import { StyledSecondaryButton, StyledPrimaryButton } from './StyledButton'
 /*
 const StyledDialogButton = styled(Button)(() => ({
   fontWeight: 'bold',
@@ -50,8 +49,8 @@ const StyledDialog: React.FC<StyledDialogProps> = (props) => {
       <DialogActions>
         <Box display="inline-flex">
           {props.actions}
-          <StencilStyles.SecondaryButton sx={{ mr: 1 }} onClick={props.onClose} label="button.cancel" />
-          {props.submit ? <StencilStyles.PrimaryButton onClick={props.submit.onClick} disabled={props.submit.disabled} label={props.submit.title} /> : undefined }
+          <StyledSecondaryButton sx={{ mr: 1 }} onClick={props.onClose} label="button.cancel" />
+          {props.submit ? <StyledPrimaryButton onClick={props.submit.onClick} disabled={props.submit.disabled} label={props.submit.title} /> : undefined }
         </Box>
       </DialogActions>
     </Dialog>

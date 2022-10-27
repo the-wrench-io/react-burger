@@ -5,6 +5,11 @@ TEST_DIR=./src/test_app
 INDEX_FILE=./src/index.tsx
 TS_FILE=./src/react-app-env.d.ts
 
+#echo "adding files to gitignore package.json tsconfig.json"
+#git update-index --assume-unchanged package.json tsconfig.json
+#git update-index --no-assume-unchanged package.json tsconfig.json
+
+
 if [[ -f "$INDEX_FILE" ]]; then
   echo "Demo start up exists, delete: '$INDEX_FILE' if you want them to be recreated"
   read -p "Press [Enter] to continue"

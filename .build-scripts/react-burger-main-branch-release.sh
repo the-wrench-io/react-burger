@@ -26,6 +26,8 @@ else
      readonly local branch=${refname#refs/remotes/origin/}
 fi
 
+\cp ./.build-scripts/release_tsconfig.json ./tsconfig.json
+
 
 # yarn
 corepack enable

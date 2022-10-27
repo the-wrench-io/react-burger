@@ -5,8 +5,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import StencilStyles from '../styles';
-
+import { StyledSecondaryButton, StyledPrimaryButton } from './StyledButton'
+import { StyledSearchField } from './StyledTextField';
 
 interface StyledTransferListProps {
   title: string;
@@ -72,8 +72,8 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
           </Box>
           <Box flexGrow={1} />
           <Box>
-            <StencilStyles.SecondaryButton label={props.cancel.label} onClick={cancel.onClick} sx={{ marginRight: 1 }} />
-            <StencilStyles.PrimaryButton label={props.submit.label} onClick={() => submit.onClick(selected)} />
+            <StyledSecondaryButton label={props.cancel.label} onClick={cancel.onClick} sx={{ marginRight: 1 }} />
+            <StyledPrimaryButton label={props.submit.label} onClick={() => submit.onClick(selected)} />
           </Box>
         </Box>
       </Box>
@@ -115,7 +115,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
       </Box>
 
       <Box component={Paper} sx={{ p: 2, pb: 4, mt: 2, mb: 2, mr: 3, ml: 3 }}>
-        <StencilStyles.SearchField label={searchTitle} value={search} onChange={setSearch} 
+        <StyledSearchField label={searchTitle} value={search} onChange={setSearch} 
           placeholder={intl.formatMessage({id: searchPlaceholder ? searchPlaceholder : "transferlist.search"})}/>
       </Box>
 

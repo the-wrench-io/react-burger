@@ -4,7 +4,7 @@ import { TabsSession } from './tabs/TabsAPI';
 
 type AppId = string;
 
-interface App<T> {
+interface App<T extends Object> {
   id: AppId;
   state: [ AppStateCreate<T>, AppStateRestore<T> ] 
   components: {
@@ -14,7 +14,7 @@ interface App<T> {
   }
 }
 
-type AppStateCreate<T> = (children: React.ReactNode, restorePoint?: AppState<T>) => React.ReactNode
+type AppStateCreate<T extends Object> = (children: React.ReactNode, restorePoint?: AppState<T>) => React.ReactNode
 
 type AppStateRestore<T> = () => { restorePoint?: T }
 
