@@ -14,7 +14,7 @@ fi
 echo "Setup git user name to '$GIT_USER' and email to '$GIT_EMAIL'"
 git config --global user.name "$GIT_USER";
 git config --global user.email "$GIT_EMAIL";
-git update-index --assume-unchanged ".yarnrc.yml" "tsconfig.json"
+git update-index --assume-unchanged ".yarnrc.yml"
 
 # Checkout
 git branch -a --contains ${GITHUB_SHA} --format="%(refname)"
@@ -34,9 +34,6 @@ corepack enable
 yarn set version 3.1.1
 echo "Current yarn version: $(yarn -v)"
 yarn plugin import version
-
-
-  "name": "@the-wrench-io/react-burger",
 yarn install
 yarn build
 
