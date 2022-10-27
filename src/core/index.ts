@@ -28,15 +28,17 @@ import { StyledCheckbox } from './styles/StyledCheckbox';
 import { StyledSwitch, StyledSwitchProps } from './styles/StyledSwitch';
 import { StyledRadioButton } from './styles/StyledRadioButton';
 
+import { ReleasesTable, ReleasesTableProps } from './releases/ReleasesTable';
 
 declare namespace Burger {
   export { 
     AppProviderProps, AppContextType, AppSession, AppActions, App, AppId, AppState, AppStateCreate, AppStateRestore,
     DrawerContextType, DrawerSession, DrawerActions,
     TabsContextType, TabsSession, TabSession, TabsHistory, TabsActions,
-    SecondaryContextType, SecondarySession, SecondaryActions
+    SecondaryContextType, SecondarySession, SecondaryActions,
   };
   export { StyledDialogProps, StyledSelectProps, StyledTextFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
+  export { ReleasesTableProps }
 }
 
 namespace Burger {
@@ -67,6 +69,8 @@ namespace Burger {
   export const Checkbox = StyledCheckbox;
   export const Switch = StyledSwitch;
   export const RadioButton = StyledRadioButton;
+
+  export const ReleaseTable = ReleasesTable;
 
 }
 
