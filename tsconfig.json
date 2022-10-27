@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es6",
-      "dom",
-      "es2017"
-    ],
+    "lib": ["es6", "dom", "es2017"],
     "outDir": "build",
     "target": "es5",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "rootDirs": [
@@ -26,17 +22,14 @@
     "inlineSources": true,
     "resolveJsonModule": true,
     "declaration": true,
-    "jsx": "react-jsx",
+    "jsx": "react",
     "typeRoots": [
       "index.d.ts",
       "node_modules/@types"
-    ],
-    "noFallthroughCasesInSwitch": true,
-    "isolatedModules": true,
-    "noEmit": true
+    ]
   },
   "include": [
-    "src/**/*"
+     "src/**/*"
   ],
   "exclude": [
     "node_modules",
