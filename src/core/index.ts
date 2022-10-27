@@ -28,7 +28,7 @@ import { StyledCheckbox } from './styles/StyledCheckbox';
 import { StyledSwitch, StyledSwitchProps } from './styles/StyledSwitch';
 import { StyledRadioButton } from './styles/StyledRadioButton';
 
-import { ReleasesTable, ReleasesTableProps } from './releases/ReleasesTable';
+import { ReleasesTable, Release, ReleasesTableProps } from './releases/ReleasesTable';
 
 declare namespace Burger {
   export { 
@@ -38,7 +38,7 @@ declare namespace Burger {
     SecondaryContextType, SecondarySession, SecondaryActions,
   };
   export { StyledDialogProps, StyledSelectProps, StyledTextFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
-  export { ReleasesTableProps }
+  export { Release, ReleasesTableProps }
 }
 
 namespace Burger {

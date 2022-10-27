@@ -1,14 +1,20 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TableSortLabel } from "@mui/material";
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import HdesClient from "../context/HdesClient";
-import StencilClient from "../context/StencilClient";
-import moment from "moment";
+
+interface Release {
+    id: string;
+    body: {
+        name: string;
+        note?: string;
+        created: string;
+    };
+}
 
 interface ReleasesTableProps {
-    releases: HdesClient.Entity<HdesClient.AstTag>[] | StencilClient.Release[];
+    releases: Release[];
     row: React.FC<{
-        release: HdesClient.Entity<HdesClient.AstTag> | StencilClient.Release;
+        release: Release;
     }>;
 }
 
@@ -20,25 +26,20 @@ const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, row: Row }) => 
     const [sort, setSort] = React.useState<sortOptions>('name');
     const [direction, setDirection] = React.useState<sortDirections>('desc');
 
-    const isHdesRelease = (release: HdesClient.Entity<HdesClient.AstTag> | StencilClient.Release): release is HdesClient.Entity<HdesClient.AstTag> => {
-        return (release as HdesClient.Entity<HdesClient.AstTag>) !== undefined;
-    }
-
     const sortByParam = (param: sortOptions, dir: sortDirections) => {
         switch (param) {
             case 'name':
                 releases.sort((a, b) => {
-                    const nameA = isHdesRelease(a) ? a.ast?.name : a.body.name;
-                    const nameB = isHdesRelease(b) ? b.ast?.name : b.body.name;
+                    const nameA = a.body.name;
+                    const nameB = b.body.name;
                     return (dir === 'asc') ? (nameA.localeCompare(nameB)) : (nameB.localeCompare(nameA));
                 });
                 break;
             case 'created':
                 releases.sort((a, b) =>{
-                    const momentA = moment.utc(isHdesRelease(a) ? a.ast?.created : a.body.created).local().format('MM-DD-YYY HH:mm:ss');
-                    const momentB = moment.utc(isHdesRelease(b) ? b.ast?.created : b.body.created).local().format('MM-DD-YYY HH:mm:ss');                    
-                    const dateA = new Date(momentA);
-                    const dateB = new Date(momentB);
+                    const dateA = new Date(a.body.created);
+                    const dateB = new Date(b.body.created);
+                    console.log(dateA)
                     return (dir === 'asc') ? (dateA.getTime() - dateB.getTime()) : (dateB.getTime() - dateA.getTime());
                 });
                 break;
@@ -87,5 +88,5 @@ const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, row: Row }) => 
     )
 }
 
-export type { ReleasesTableProps };
+export type { Release, ReleasesTableProps };
 export { ReleasesTable }
