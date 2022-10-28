@@ -8,18 +8,19 @@ interface Release {
         name: string;
         note?: string;
         created: string;
+        data?: string;
     };
 }
 
 interface ReleasesTableProps {
     releases: Release[];
-    row: React.FC<{
+    tableRowComponent: React.FC<{
         release: Release;
     }>;
 }
 
 
-const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, row: Row }) => {
+const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, tableRowComponent: TableRowComponent }) => {
 
     type sortOptions = 'name' | 'created' ;
     type sortDirections = 'asc' | 'desc';
@@ -81,7 +82,7 @@ const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, row: Row }) => 
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {releases.map((release, index) => (<Row key={index} release={release} />))}
+                    {releases.map((release, index) => (<TableRowComponent key={index} release={release} />))}
                 </TableBody>
             </Table>
         </TableContainer>
