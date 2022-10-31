@@ -30,22 +30,19 @@ const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, tableRowCompone
     const sortByParam = (param: sortOptions, dir: sortDirections) => {
         switch (param) {
             case 'name':
-                releases.sort((a, b) => {
+                return [...releases].sort((a, b) => {
                     const nameA = a.body.name;
                     const nameB = b.body.name;
                     return (dir === 'asc') ? (nameA.localeCompare(nameB)) : (nameB.localeCompare(nameA));
                 });
-                break;
             case 'created':
-                releases.sort((a, b) =>{
+                return [...releases].sort((a, b) =>{
                     const dateA = new Date(a.body.created);
                     const dateB = new Date(b.body.created);
-                    console.log(dateA)
                     return (dir === 'asc') ? (dateA.getTime() - dateB.getTime()) : (dateB.getTime() - dateA.getTime());
                 });
-                break;
             default:
-                break;
+                return [];
         }
     };
 
@@ -58,8 +55,6 @@ const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, tableRowCompone
         setSort('created');
         setDirection((direction === 'asc') ? 'desc' : 'asc');
     }
-
-    sortByParam(sort, direction);
 
     return (
         <TableContainer component={Paper}>
@@ -82,7 +77,7 @@ const ReleasesTable: React.FC<ReleasesTableProps> = ({ releases, tableRowCompone
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {releases.map((release, index) => (<TableRowComponent key={index} release={release} />))}
+                    {sortByParam(sort, direction).map((release, index) => (<TableRowComponent key={index} release={release} />))}
                 </TableBody>
             </Table>
         </TableContainer>
