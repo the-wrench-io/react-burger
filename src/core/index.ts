@@ -28,17 +28,21 @@ import { StyledCheckbox } from './styles/StyledCheckbox';
 import { StyledSwitch, StyledSwitchProps } from './styles/StyledSwitch';
 import { StyledRadioButton } from './styles/StyledRadioButton';
 
+
 import { DateTimeFormat, DateTimeFormatProps } from './utils/DateTimeFormatter';
+import { ReleaseTable as ReleaseTableAs, Release, ReleaseTableProps } from './releases/ReleaseTable';
+
 
 declare namespace Burger {
   export { 
     AppProviderProps, AppContextType, AppSession, AppActions, App, AppId, AppState, AppStateCreate, AppStateRestore,
     DrawerContextType, DrawerSession, DrawerActions,
     TabsContextType, TabsSession, TabSession, TabsHistory, TabsActions,
-    SecondaryContextType, SecondarySession, SecondaryActions
+    SecondaryContextType, SecondarySession, SecondaryActions,
   };
   export { StyledDialogProps, StyledSelectProps, StyledTextFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
   export { DateTimeFormatProps }
+  export { Release, ReleaseTableProps }
 }
 
 namespace Burger {
@@ -71,6 +75,7 @@ namespace Burger {
   export const RadioButton = StyledRadioButton;
 
   export const DateTimeFormatter = DateTimeFormat;
+  export const ReleaseTable = ReleaseTableAs;
 
 }
 
