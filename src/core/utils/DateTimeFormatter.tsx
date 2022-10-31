@@ -5,22 +5,21 @@ interface DateTimeFormatProps {
     timestamp: string | undefined;
 }
 
+const formatDateTime = (timestamp: string | undefined) => {
+    if (timestamp) {
+      const date = new Date(timestamp);
+      return moment.utc(date).local().format('DD/MM/YYYY HH:mm:ss');
+    }
+    return "";
+}
+
 const DateTimeFormat: React.FC<DateTimeFormatProps> = ({ timestamp }) => {
-
-    const formatDateTime = () => {
-        if (timestamp) {
-          const date = new Date(timestamp);
-          return moment.utc(date).local().format('DD/MM/YYYY HH:mm:ss');
-        }
-        return "";
-      }
-
     return (
         <>
-            {formatDateTime()}
+            {formatDateTime(timestamp)}
         </>
     )
 }
 
 export type { DateTimeFormatProps }
-export { DateTimeFormat }
+export { DateTimeFormat, formatDateTime }
