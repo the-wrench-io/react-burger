@@ -28,6 +28,7 @@ import { StyledCheckbox } from './styles/StyledCheckbox';
 import { StyledSwitch, StyledSwitchProps } from './styles/StyledSwitch';
 import { StyledRadioButton } from './styles/StyledRadioButton';
 
+import { DateTimeFormat, DateTimeFormatProps } from './utils/DateTimeFormatter';
 
 declare namespace Burger {
   export { 
@@ -37,6 +38,7 @@ declare namespace Burger {
     SecondaryContextType, SecondarySession, SecondaryActions
   };
   export { StyledDialogProps, StyledSelectProps, StyledTextFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
+  export { DateTimeFormatProps }
 }
 
 namespace Burger {
@@ -67,6 +69,8 @@ namespace Burger {
   export const Checkbox = StyledCheckbox;
   export const Switch = StyledSwitch;
   export const RadioButton = StyledRadioButton;
+
+  export const DateTimeFormatter = DateTimeFormat;
 
 }
 
