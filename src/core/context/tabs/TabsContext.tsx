@@ -13,7 +13,7 @@ const TabsContext = React.createContext<API.TabsContextType>({
 const sessionInit: TabsSessionData = new TabsSessionData({appId: ""})
 
 
-const TabsProvider: React.FC<{appId: string}> = ({appId, children}) => {
+const TabsProvider: React.FC<{appId: string, children: React.ReactNode}> = ({appId, children}) => {
   const [session, dispatch] = React.useReducer(TabsReducer, sessionInit.withAppId(appId));
   const actions = React.useMemo(() => new TabsReducerDispatch(dispatch), [dispatch]);
   

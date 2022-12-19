@@ -12,7 +12,7 @@ const SecondaryContext = React.createContext<API.SecondaryContextType>({
 
 const sessionInit: SecondarySessionData = new SecondarySessionData({appId: ""})
 
-const SecondaryProvider: React.FC<{appId: string, secondary?: string}> = ({appId, secondary, children}) => {
+const SecondaryProvider: React.FC<{appId: string, secondary?: string, children: React.ReactNode}> = ({appId, secondary, children}) => {
   const [session, dispatch] = React.useReducer(SecondaryReducer, sessionInit.withAppId(appId).withSecondary(secondary));
   const actions = React.useMemo(() => new SecondaryReducerDispatch(dispatch), [dispatch]);
   

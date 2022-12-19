@@ -11,7 +11,7 @@ const DrawerContext = React.createContext<API.DrawerContextType>({
 
 const sessionInit: DrawerSessionData = new DrawerSessionData({})
 
-const DrawerProvider: React.FC<{drawerOpen?: boolean}> = (props) => {
+const DrawerProvider: React.FC<{drawerOpen?: boolean, children: React.ReactNode}> = (props) => {
   const [session, dispatch] = React.useReducer(DrawerReducer, sessionInit.withDrawer(props.drawerOpen ? true : false));
   const actions = React.useMemo(() => new DrawerReducerDispatch(dispatch), [dispatch]);
   

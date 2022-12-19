@@ -73,14 +73,14 @@ const Toolbar2: React.FC<{}> = () => {
 
 interface App1ContextType { }
 const App1Context = React.createContext<App1ContextType>({});
-const App1Provider: React.FC<{}> = (props) => {
+const App1Provider: React.FC<{children: React.ReactNode}> = (props) => {
   return (<App1Context.Provider value={{}}>{props.children}</App1Context.Provider>);
 }
 
 
 interface App2ContextType { }
 const App2Context = React.createContext<App2ContextType>({});
-const App2Provider: React.FC<{}> = (props) => {
+const App2Provider: React.FC<{children: React.ReactNode}> = (props) => {
   return (<App2Context.Provider value={{}}>{props.children}</App2Context.Provider>);
 }
 
