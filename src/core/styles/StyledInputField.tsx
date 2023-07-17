@@ -206,6 +206,7 @@ const StyledDateTimeField: React.FC<StyledInputFieldProps<string>> = (props) => 
         fullWidth
         disabled={disabled}
         variant="outlined"
+        required={required}
         type={"datetime-local"}
         placeholder={placeholder + ""}
         value={value}
