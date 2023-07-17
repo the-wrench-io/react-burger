@@ -1,7 +1,11 @@
 import { StyledDialog, StyledDialogProps } from './StyledDialog';
 import { StyledTreeItem, StyledTreeItemRoot, StyledTreeItemOption, StyledTreeItemProps } from './StyledTreeItem';
 import { StyledSelect, StyledSelectMultiple, StyledSelectProps } from './StyledSelect';
-import { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField, StyledTextFieldProps } from './StyledTextField';
+import { 
+  StyledTextField, StyledNumberField, 
+  StyledFileField, StyledSearchField, 
+  StyledDateField, StyledDateTimeField, StyledInputFieldProps 
+} from './StyledInputField';
 import { StyledTransferList, StyledTransferListProps } from './StyledTransferList';
 import { StyledPrimaryButton, StyledSecondaryButton} from './StyledButton';
 import { StyledCheckbox } from './StyledCheckbox';
@@ -10,7 +14,7 @@ import { StyledRadioButton } from './StyledRadioButton';
 
 
 declare namespace BurgerStyles {
-  export type { StyledDialogProps, StyledSelectProps, StyledTextFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
+  export type { StyledDialogProps, StyledSelectProps, StyledInputFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
 }
 
 namespace BurgerStyles {
@@ -20,6 +24,8 @@ namespace BurgerStyles {
   export const TextField = StyledTextField;
   export const NumberField = StyledNumberField;
   export const FileField = StyledFileField;
+  export const DateField = StyledDateField;
+  export const DateTimeField = StyledDateTimeField;
   
   export const TreeItem = StyledTreeItem;
   export const TreeItemRoot = StyledTreeItemRoot;
