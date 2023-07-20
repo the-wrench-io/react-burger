@@ -71,6 +71,7 @@ const palette = {
     main: '#554971',
     light: '#796AA0',
     dark: '#413857',
+    contrastText: 'rgba(0, 0, 0, 0.23)',
   },
   warning: {
     main: '#ff9800',

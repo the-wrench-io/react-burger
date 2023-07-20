@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  TextField, TextFieldProps, FormControl, FormControlProps,
-  FormHelperText, InputLabel, Input, InputProps, Typography, Box
+  TextField, TextFieldProps, FormControl,
+  FormControlProps, InputLabel, Typography, Button
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import UploadIcon from '@mui/icons-material/Upload';
 
 import { styled } from "@mui/material/styles";
 import { FormattedMessage } from 'react-intl';
@@ -36,14 +37,9 @@ const TextFieldRoot = styled(TextField)<TextFieldProps>(({ theme }) => ({
 }));
 
 const StyledFormControl = styled(FormControl)<FormControlProps>(({ theme }) => ({
-  marginTop: theme.spacing(2),
+  marginTop: theme.spacing(1),
   color: theme.palette.primary.contrastText,
   backgroundColor: theme.palette.background.paper,
-  '& .MuiOutlinedInput-root': {
-    '&.Mui-focused fieldset': {
-      borderColor: theme.palette.uiElements.main,
-    },
-  },
 }));
 
 const StyledInputLabel = styled(InputLabel)(({ theme }) => ({
@@ -58,14 +54,16 @@ const StyledBottomText = styled(Typography)(({ theme }) => ({
   paddingLeft: theme.spacing(2),
 }));
 
-const StyledInputProps = styled(Input)<InputProps>(({ theme }) => ({
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.background.paper,
-  '& .MuiOutlinedInput-root': {
-    '&.Mui-focused fieldset': {
-      borderColor: theme.palette.uiElements.main,
-    },
-  },
+const StyledUploadButton = styled(Button)(({ theme }) => ({
+  padding: theme.spacing(2),
+  color: theme.palette.text.primary,
+  backgroundColor: theme.palette.uiElements.light,
+  borderRadius: theme.spacing(0.5),
+  borderColor: theme.palette.info.contrastText,
+  width: 'fit-content',
+  ':hover': {
+    borderColor: theme.palette.warning.contrastText,
+  }
 }));
 
 const BottomText: React.FC<{
@@ -87,26 +85,37 @@ const BottomText: React.FC<{
   );
 }
 
-const StyledFileField: React.FC<StyledInputFieldProps<string>> = ({ onChange, label, value, required, placeholder, helperText, disabled }) => {
-  const title = <FormattedMessage id={label} />;
+const StyledFileField: React.FC<StyledInputFieldProps<string>> = (props) => {
+  const { onChange, label, helperText, disabled, errorMessage, error } = props;
+  const inputFile = React.useRef<HTMLInputElement>(null);
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file: File = (e.target as any).files[0];
+    const enc = new TextDecoder("utf-8");
+    file.arrayBuffer().then(d => onChange(enc.decode(d)));
+  }
+
   return (
-    <Box sx={{ mt: 2 }}>
-      <InputLabel sx={{ fontWeight: "bold" }}>{title}</InputLabel>
+    <>
+      <StyledInputLabel><FormattedMessage id={label} /></StyledInputLabel>
       <StyledFormControl variant="outlined" fullWidth>
-        <StyledInputProps
-          fullWidth
-          disableUnderline
+        <input
           type="file"
-          disabled={disabled}
-          onChange={(e) => {
-            const file: File = (e.target as any).files[0];
-            const enc = new TextDecoder("utf-8");
-            file.arrayBuffer().then(d => onChange(enc.decode(d)));
-          }}
+          hidden
+          ref={inputFile}
+          onChange={(e) => handleFileChange}
         />
+        <StyledUploadButton
+          variant="outlined"
+          disabled={disabled}
+          startIcon={<UploadIcon />}
+          onClick={() => inputFile.current?.click()}
+        >
+          <Typography><FormattedMessage id='Upload' /></Typography>
+        </StyledUploadButton>
       </StyledFormControl>
-      {helperText ? <FormHelperText><FormattedMessage id={helperText} /></FormHelperText> : null}
-    </Box>
+      <BottomText helperText={helperText} error={error} errorMessage={errorMessage} />
+    </>
   );
 }
 
