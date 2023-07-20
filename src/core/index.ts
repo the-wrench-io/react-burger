@@ -21,7 +21,7 @@ import {
 import { StyledDialog, StyledDialogProps } from './styles/StyledDialog';
 import { StyledTreeItem, StyledTreeItemRoot, StyledTreeItemOption, StyledTreeItemProps } from './styles/StyledTreeItem';
 import { StyledSelect, StyledSelectMultiple, StyledSelectProps } from './styles/StyledSelect';
-import { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField, StyledTextFieldProps, StyledDateField, StyledDateTimeField } from './styles/StyledTextField';
+import { StyledTextField, StyledNumberField, StyledFileField, StyledSearchField, StyledInputFieldProps, StyledDateField, StyledDateTimeField } from './styles/StyledInputField';
 import { StyledTransferList, StyledTransferListProps } from './styles/StyledTransferList';
 import { StyledPrimaryButton, StyledSecondaryButton} from './styles/StyledButton';
 import { StyledCheckbox } from './styles/StyledCheckbox';
@@ -40,7 +40,7 @@ declare namespace Burger {
     TabsContextType, TabsSession, TabSession, TabsHistory, TabsActions,
     SecondaryContextType, SecondarySession, SecondaryActions,
   };
-  export { StyledDialogProps, StyledSelectProps, StyledTextFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
+  export { StyledDialogProps, StyledSelectProps, StyledInputFieldProps, StyledTreeItemProps, StyledTransferListProps, StyledSwitchProps }
   export { DateTimeFormatProps }
   export { Release, ReleaseTableProps }
 }

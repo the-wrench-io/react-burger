@@ -6,7 +6,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { StyledSecondaryButton, StyledPrimaryButton } from './StyledButton'
-import { StyledSearchField } from './StyledTextField';
+import { StyledSearchField } from './StyledInputField';
 
 interface StyledTransferListProps {
   title: string;
@@ -40,7 +40,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
   const [searchResult, setSearchResult] = React.useState(rows);
   const [selected, setSelected] = React.useState(initSelected);
   const searchItems = search ? searchResult : rows;
-  const intl = useIntl(); 
+  const intl = useIntl();
 
   const handleChange = (id: string, command: "add" | "remove") => {
     const currentIndex = selected.indexOf(id);
@@ -56,7 +56,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
 
 
   React.useEffect(() => {
-    if (!search) {  
+    if (!search) {
       return;
     }
     setSearchResult(rows.filter(row => filterRow(row, search.toLowerCase())));
@@ -65,7 +65,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
 
   return (
     <>
-      <Box sx={{ paddingBottom: 1, m: 2}}>
+      <Box sx={{ paddingBottom: 1, m: 2 }}>
         <Box display="flex">
           <Box alignSelf="center">
             <Typography variant="h3" fontWeight="bold"><FormattedMessage id={title} values={props.titleArgs} /></Typography>
@@ -102,7 +102,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
               {selected.map((row, index) => (
                 <TableRow hover key={index}>
                   <TableCell>
-                    <IconButton sx={{color: 'uiElements.main'}} onClick={() => handleChange(row, "remove")}>
+                    <IconButton sx={{ color: 'uiElements.main' }} onClick={() => handleChange(row, "remove")}>
                       <DeleteOutlineIcon />
                     </IconButton>
                   </TableCell>
@@ -115,14 +115,14 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
       </Box>
 
       <Box component={Paper} sx={{ p: 2, pb: 4, mt: 2, mb: 2, mr: 3, ml: 3 }}>
-        <StyledSearchField label={searchTitle} value={search} onChange={setSearch} 
-          placeholder={intl.formatMessage({id: searchPlaceholder ? searchPlaceholder : "transferlist.search"})}/>
+        <StyledSearchField label={searchTitle} value={search} onChange={setSearch}
+          placeholder={intl.formatMessage({ id: searchPlaceholder ? searchPlaceholder : "transferlist.search" })} />
       </Box>
 
-      <Box sx={{ mt: 1, mb: 1, mr: 3, ml: 3}}>
+      <Box sx={{ mt: 1, mb: 1, mr: 3, ml: 3 }}>
         <TableContainer component={Paper}>
           <Table size="small">
-            <TableHead sx={{ backgroundColor: "table.main"  }}>
+            <TableHead sx={{ backgroundColor: "table.main" }}>
               <TableRow>
                 <TableCell sx={{ width: "80px" }} />
                 {headers.map((header, index) => (<TableCell key={index} align="left" sx={{ fontWeight: "bold" }}><FormattedMessage id={header} /></TableCell>))}
@@ -139,7 +139,7 @@ const StyledTransferList: React.FC<StyledTransferListProps> = (props) => {
               {searchItems.map((row, index) => (
                 <TableRow hover key={index}>
                   <TableCell>
-                    <IconButton sx={{color: 'uiElements.main'}} onClick={() => handleChange(row, "add")} disabled={selected.includes(row)}>
+                    <IconButton sx={{ color: 'uiElements.main' }} onClick={() => handleChange(row, "add")} disabled={selected.includes(row)}>
                       <AddCircleOutlineIcon />
                     </IconButton>
                   </TableCell>
